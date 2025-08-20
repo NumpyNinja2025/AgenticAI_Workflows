@@ -249,16 +249,11 @@ vsjson="{\"role\":30,\"summary\":\"Anyone with the link\",\"details\":\"Anyone w
 :::
 
 ::: onegoogle-material-minibar
-::: {#gb .gb_Fa .gb_Kd .gb_4d}
-::: {.gb_Dd .gb_1d .gb_yd ng-non-bindable="" ogsr-up="" style="padding:0"}
-::: {.gb_Te style="display:block"}
-::: gb_4c
-:::
-
+::: {#gb .gb_y role="none"}
+::: {.gb_z ogsr-up=""}
 [[Sign
-in]{.gb_Vd}](https://accounts.google.com/ServiceLogin?service=wise&passive=1209600&osid=1&continue=https://docs.google.com/spreadsheets/d/1Wbm0_LEyK7hdj2RKY5zTm9_q3rPccRBB79WxYujkOLs/edit?gid%3D0&followup=https://docs.google.com/spreadsheets/d/1Wbm0_LEyK7hdj2RKY5zTm9_q3rPccRBB79WxYujkOLs/edit?gid%3D0&ltmpl=sheets&ec=GAZAmwI){.gb_Ua
-.gb_Ad .gb_rd .gb_id aria-label="Sign in" target="_top"}
-:::
+in]{.gb_T}](https://accounts.google.com/ServiceLogin?service=wise&passive=1209600&osid=1&continue=https://docs.google.com/spreadsheets/d/1Wbm0_LEyK7hdj2RKY5zTm9_q3rPccRBB79WxYujkOLs/edit?gid%3D0&followup=https://docs.google.com/spreadsheets/d/1Wbm0_LEyK7hdj2RKY5zTm9_q3rPccRBB79WxYujkOLs/edit?gid%3D0&ltmpl=sheets&ec=GAZAmwI){.gb_A
+aria-label="Sign in" target="_top"}
 :::
 :::
 :::
@@ -4979,9 +4974,6 @@ A browser error has occurred.\
 Please hold the Shift key and click the Refresh button to try again.
 :::
 :::
-:::
-
-::: {ng-non-bindable=""}
 :::
 
 ::: {#docs-recommendation-banner}
