@@ -7,7 +7,7 @@ OUTPUT_FILE = "README.md"
 
 # Export Google Doc as HTML
 #url = f"https://docs.google.com/document/d/{DOC_ID}/export?format=html"
-url = f"https://docs.google.com/document/d/{DOC_ID}"
+url = f"https://docs.google.com/document/d/e/{DOC_ID}/pub"
 #url = f"https://docs.google.com/spreadsheets/d/{DOC_ID}/edit?gid=0#gid=0"
 #url = f"https://docs.google.com/spreadsheets/d/e/{DOC_ID}"
 response = requests.get(url)
