@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Project Workflow Flowchart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* A light grey background */
+        }
+        /* Style for the mermaid diagram */
+        .mermaid {
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-4 sm:p-6 md:p-8">
+
+    <div class="max-w-7xl mx-auto bg-white rounded-xl shadow-lg p-6 md:p-8">
+        <header class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-gray-800">Comprehensive AI Solutions Project Flowchart</h1>
+            <p class="text-md text-gray-500 mt-2">A visual representation of the project implementation process.</p>
+            <p class="text-sm text-blue-500 mt-4 bg-blue-50 p-3 rounded-lg">
+                <strong>Tip:</strong> To save this flowchart as an image, you can use your computer's screen capture tool or right-click the diagram (in some browsers) and select "Save image as...".
+            </p>
+        </header>
+
+        <!-- The Mermaid diagram definition is placed within this div -->
+        <div class="mermaid text-center">
+            graph TD
+                A[Project Initiation] --> B{Project Planning & Requirements};
+                B --> C{Data & Platform Access};
+
+                C --> D{Core System Development};
+                subgraph Core System Development
+                    D1[Data Collection & Preparation]
+                    D2[Setup OpenAI Vector Database]
+                    D3[Core RAG System Development]
+                    D1 --> D2 --> D3;
+                end
+
+                D --> P{Parallel Component Development};
+                
+                subgraph S1 [Solution 1: Website Chatbot]
+                    direction LR
+                    S1_A[Chatbot UI/UX Development] --> S1_B[Backend Integration with RAG] --> S1_C[QA & Performance Testing] --> S1_D[Website Deployment];
+                end
+
+                subgraph S2 [Solution 2: Facebook Chatbot]
+                    direction LR
+                    S2_A[Facebook API & Messenger Setup] --> S2_B[Adapt RAG for Social Media] --> S2_C[Implement Lead Generation] --> S2_D[Testing & Launch on Page];
+                end
+
+                subgraph S3 [Solution 3: Marketing Agent]
+                    direction LR
+                    S3_A[Trend Monitoring System Setup] --> S3_B[AI Content Generation Engine] --> S3_C[Automation & Scheduling Workflow] --> S3_D[Analytics Dashboard Setup];
+                end
+
+                subgraph S4 [Solution 4: Gmail Agent]
+                    direction LR
+                    S4_A[Gmail API & Webhook Setup] --> S4_B[Adapt RAG for Email] --> S4_C[Implement Priority & Workflow Mgt] --> S4_D[Testing & Go-Live];
+                end
+
+                P --> S1;
+                P --> S2;
+                P --> S3;
+                P --> S4;
+
+                S1_D --> F;
+                S2_D --> F;
+                S3_D --> F;
+                S4_D --> F;
+                
+                F{Final Integration & System-Wide Testing};
+                F --> G[Full Deployment & Client Training];
+                G --> H[Ongoing Support & Maintenance];
+                H --> I((Project Complete & Continuous Improvement));
+
+                %% Styling
+                style A fill:#e0e7ff,stroke:#6366f1,stroke-width:2px,color:#3730a3
+                style B fill:#e0e7ff,stroke:#6366f1,stroke-width:2px,color:#3730a3
+                style C fill:#e0e7ff,stroke:#6366f1,stroke-width:2px,color:#3730a3
+                style F fill:#dcfce7,stroke:#22c55e,stroke-width:2px,color:#15803d
+                style G fill:#dcfce7,stroke:#22c55e,stroke-width:2px,color:#15803d
+                style H fill:#fefce8,stroke:#eab308,stroke-width:2px,color:#854d0e
+                style I fill:#22c55e,stroke:#166534,stroke-width:2px,color:#ffffff
+                
+                classDef default fill:#fff,stroke:#4b5563,stroke-width:2px,color:#1f2937
+        </div>
+    </div>
+
+    <!-- Mermaid JS library -->
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</body>
+</html>
