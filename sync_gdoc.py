@@ -24,84 +24,96 @@ except Exception as e:
     print(f"Error fetching Google Doc: {e}")
     exit(1)
 
-# --- FINAL Conversion Logic ---
+# --- FINAL, ROBUST Conversion Logic ---
 def parse_doc_to_md(content):
     """
-    Parses Google Doc content and converts it to structurally correct Markdown.
-    This version handles hard paragraphs, soft line breaks, and other elements.
+    Parses Google Doc content to structurally correct Markdown,
+    handling headings, lists, links, and styling.
     """
     markdown_lines = []
     list_counters = {}
 
     for element in content:
-        # --- Handle Horizontal Rules ---
-        if 'horizontalRule' in element.get('paragraph', {}).get('elements', [{}])[0]:
-            markdown_lines.append('---')
-            continue
-
-        # --- Handle Paragraphs (includes text, lists, and empty lines) ---
         if 'paragraph' in element:
             paragraph = element.get('paragraph')
             elements = paragraph.get('elements', [])
-            
-            # Check for empty paragraphs used for spacing
+
+            # Handle Horizontal Rules, which are a type of paragraph element
+            if elements and 'horizontalRule' in elements[0]:
+                markdown_lines.append('---')
+                continue
+
+            # Handle empty paragraphs (used for spacing)
             if len(elements) == 1 and elements[0].get('textRun', {}).get('content') == '\n':
                 markdown_lines.append('')
                 continue
+
+            # Build the Markdown for this single paragraph
+            current_line_parts = []
             
-            line_parts = []
-            
-            # Handle list items (numbered lists)
-            bullet = paragraph.get('bullet')
-            if bullet and bullet.get('listId'):
-                list_id = bullet.get('listId')
-                list_counters[list_id] = list_counters.get(list_id, 0) + 1
-                line_parts.append(f"{list_counters[list_id]}. ")
-            
-            # Process each text run within the paragraph
+            # Process all text runs in this paragraph
             for el in elements:
                 if 'textRun' in el:
                     text_run = el.get('textRun')
                     text_content = text_run.get('content', '')
-                    text_style = text_run.get('textStyle', {})
                     
-                    # --- KEY IMPROVEMENT: Handle soft line breaks (Shift+Enter) ---
-                    # The API represents a soft break as a vertical tab '\v'.
-                    # We replace it with a proper newline character for Markdown.
-                    text_content = text_content.replace('\v', '\n')
-
-                    # Ignore pure newline characters, as they are handled by paragraph breaks
+                    # Skip the automatic newline character that ends a paragraph
                     if text_content == '\n':
                         continue
+                    
+                    # Handle soft line breaks (Shift+Enter) if they exist
+                    text_content = text_content.replace('\v', '  \n')
 
-                    # Apply formatting styles
+                    text_style = text_run.get('textStyle', {})
+                    
+                    # Apply styles from the inside out
+                    processed_content = text_content
                     if text_style.get('bold'):
-                        # Split content by newlines to apply bolding correctly line by line
-                        parts = text_content.split('\n')
-                        bolded_parts = [f"**{part}**" for part in parts]
-                        text_content = '\n'.join(bolded_parts)
-
+                        processed_content = f"**{processed_content}**"
+                    
                     if text_style.get('link'):
-                        url = text_style['link']['url']
-                        clean_text_content = text_content.replace('\n', ' ').strip()
-                        # Re-apply bolding if it existed
-                        if text_style.get('bold'):
-                           clean_text_content = f"**{clean_text_content}**"
-                        text_content = f"[{clean_text_content}]({url})"
+                        processed_content = f"[{processed_content}]({text_style['link']['url']})"
 
-                    line_parts.append(text_content)
+                    current_line_parts.append(processed_content)
             
-            # Join all parts of the line and add to our output
-            if line_parts:
-                full_line = "".join(line_parts).rstrip()
-                markdown_lines.append(full_line)
+            current_line = "".join(current_line_parts)
+
+            # Handle Numbered Lists
+            if 'bullet' in paragraph:
+                list_id = paragraph['bullet']['listId']
+                nesting_level = paragraph['bullet'].get('nestingLevel', 0)
+                indent = "  " * nesting_level
+                
+                # A simple way to manage list counters
+                if list_id not in list_counters:
+                    list_counters[list_id] = 0
+                list_counters[list_id] += 1
+                
+                current_line = f"{indent}{list_counters[list_id]}. {current_line}"
+            else:
+                # Reset counters when we exit a list
+                list_counters = {}
+
+            # Handle Paragraph Styles (Headings)
+            p_style = paragraph.get('paragraphStyle', {})
+            if 'namedStyleType' in p_style:
+                style = p_style['namedStyleType']
+                if style == 'HEADING_1':
+                    current_line = f"# {current_line}"
+                elif style == 'HEADING_2':
+                    current_line = f"## {current_line}"
+                elif style == 'HEADING_3':
+                    current_line = f"### {current_line}"
+                elif style == 'HEADING_4':
+                    current_line = f"#### {current_line}"
+
+            markdown_lines.append(current_line)
 
     return "\n".join(markdown_lines)
 
 # --- Main Execution ---
 markdown_content = parse_doc_to_md(content)
 
-# Write to README.md
 with open("README.md", "w", encoding="utf-8") as f:
     f.write(markdown_content)
 
