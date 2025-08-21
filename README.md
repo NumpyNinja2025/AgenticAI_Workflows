@@ -19,25 +19,22 @@ Just do changes here it will reflect to github it takes time of 1 hour to sync.
 ****
 **Title: description - author name for interested people to connect.**
 ****
-**__________________________________________________________________________________________________________________**
+**1.**
 ****
+2.
 **Agented Tools 🧰: **
 ****
 **Description : Add the tools that are connected to the agent.**
 ****
-[****Example tool****](https://github.com/RAMM143/numpy-ninja-flow-chart/tree/main/My%20n8n%20Workflows/Example%20flow%20Directory)** - This is an example tool follow this structure and order**
+**1.**[****Example tool****](https://github.com/RAMM143/numpy-ninja-flow-chart/tree/main/My%20n8n%20Workflows/Example%20flow%20Directory)** - This is an example tool follow this structure and order**
 ****
-**____________________________________________________________________________________****_________________________________________________**
-****
-
-
-
+2.
 **Full Workflows 💯:**
 ****
 **Description : Add the full pledged workflows here:**
 ****
-**__________________________________________________________****________________________________________________________**
-****
+
 **New Category 🤔:**
+****
 **Description: Add your category description here**
 ****
