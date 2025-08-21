@@ -1,58 +1,55 @@
-**Github link : **[****Click here****](https://github.com/NumpyNinja2025/AgenticAI_Workflows)
+**Github link : **[****Click here****](https://github.com/NumpyNinja2025/AgenticAI_Workflows)**\n**
 
-How to add the workflows to Github,
+How to add the workflows to Github,\n
 
-Just do changes here it will reflect to github it takes time of 1 hour to sync.
+Just do changes here it will reflect to github it takes time of 1 hour to sync.\n
 
 **Conditions:
 **
-**1. Don’t Change any other workflows.
+**1. Don’t Change any other workflows.\n
 **
-**2. Add your workflow directory link here and a line of sentence about what your workflow is.
+**2. Add your workflow directory link here and a line of sentence about what your workflow is.\n
 **
-**3. Inside in your github repo’s you can make readme files for each and every flow to explain it briefly.
+**3. Inside in your github repo’s you can make readme files for each and every flow to explain it briefly.\n
 **
-**4. We are having categories here, in that add your respective works.
-**
-
-**If you are having any other category please add it as a new category.
+**4. We are having categories here, in that add your respective works.\n
 **
 
-**_________________________________________________________________________
-**
-**Future N8N workflows Ideas or Plans 💭💡: 
-**
-**Title: description - author name for interested people to connect.
+**If you are having any other category please add it as a new category.\n
 **
 
-
-
-**_________________________________________________________________________
+**_________________________________________________________________________\n
+**
+**Future N8N workflows Ideas or Plans 💭💡: \n
+**
+**Title: description - author name for interested people to connect.\n
 **
 
-**Agented Tools 🧰: 
-**
-**D****escription : Add the tools that are connected to the agent.
-**
-
-[****Example tool****](https://github.com/RAMM143/numpy-ninja-flow-chart/tree/main/My%20n8n%20Workflows/Example%20flow%20Directory)** - This is an example tool follow this structure and order**
 
 
-
-
-
-
-
-
-
-
-**_________________________________________________________________________
+**_________________________________________________________________________\n
 **
 
-**Full Workflows 💯: 
+**Agented Tools 🧰: \n
 **
-**Description : Add the full pledged workflows here.
+**D****escription : Add the tools that are connected to the agent.****\n**
+
+[****Example tool****](https://github.com/RAMM143/numpy-ninja-flow-chart/tree/main/My%20n8n%20Workflows/Example%20flow%20Directory)** - This is an example tool follow this structure and order****\n**
+
+
+
+
+
+
+
+
+
+
+**_________________________________________________________________________****\n**
+
+**Full Workflows 💯: \n
 **
+**Description : Add the full pledged workflows here.****\n**
 
 
 
@@ -63,8 +60,6 @@ Just do changes here it will reflect to github it takes time of 1 hour to sync.
 
 **_________________________________________________________________________
 **
-
-**New Category 🤔:
-**
-**Description: Add your category description here
-**
+**\n**
+**New Category 🤔:****\n**
+**Description: Add your category description here****\n**
