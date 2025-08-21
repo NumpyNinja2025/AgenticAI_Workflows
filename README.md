@@ -1,22 +1,97 @@
-**Paragraph
+**Github link : **[**Click here**](https://github.com/NumpyNinja2025/AgenticAI_Workflows)**
 **
-In the bustling marketplace, merchants displayed vibrant textiles, fragrant spices, and intricate ornaments. Travelers from distant lands marveled at the diverse culture, while local artisans showcased their craftsmanship. The air was filled with animated chatter, blending languages from across the world, creating a lively yet harmonious atmosphere.
 
-**Words & Meanings
+How to add the workflows to Github,
+Just do changes here it will reflect to github it takes time of 1 hour to sync.
+**Conditions:
 **
-1. [Bustling](http://www.google.com) – full of lively activity.
-2. [Marketplace](http://www.google.com) – a place where goods are bought and sold.
-3. [Merchants](http://www.google.com) – people who sell goods, especially in large quantities.
-4. [Vibrant](http://www.google.com)– full of life and energy.
-5. [Textiles](http://www.google.com) – types of cloth or woven fabric.
-6. [Fragrant](http://www.google.com) – having a pleasant smell.
-7. [Intricate](http://www.google.com) – very detailed or complex.
-8. [Ornaments](http://www.google.com) – decorative objects used to beautify something.
-9. [Travelers](http://www.google.com) – people who are journeying from one place to another.
-10. [Distant](http://www.google.com) – far away in space or time.
-11. [Diverse](http://www.google.com) – showing a great deal of variety.
-12. [Culture](http://www.google.com) – the customs, arts, and social institutions of a group.
-13. [Artisans](http://www.google.com) – skilled craft workers who make things by hand.
-14. [Chatter](http://www.google.com) – fast and continuous talk.
-15. [Harmonious](http://www.google.com)– forming a pleasing or consistent whole.
-
+**1. Don’t Change any other workflows.
+**
+**2. Add your workflow directory link here and a line of sentence about what your workflow is.
+**
+**3. Inside in your github repo’s you can make readme files for each and every flow to explain it briefly.
+**
+**4. We are having categories here, in that add your respective works.
+**
+**
+**
+**If you are having any other category please add it as a new category.
+**
+**
+**
+**_________________________________________________________________________
+**
+**Future N8N workflows Ideas or Plans 💭💡: 
+**
+**Title: description - author name for interested people to connect.
+**
+**
+**
+**
+**
+**
+**
+**_________________________________________________________________________
+**
+**
+**
+**Agented Tools 🧰: 
+**
+**D****escription : Add the tools that are connected to the agent.
+**
+**
+**
+[**Example tool**](https://github.com/RAMM143/numpy-ninja-flow-chart/tree/main/My%20n8n%20Workflows/Example%20flow%20Directory)** - This is an example tool follow this structure and order****
+**
+**
+**
+**
+**
+**
+**
+**
+**
+**
+**
+**
+**
+**
+**
+**
+**
+**
+**
+**
+**
+**_________________________________________________________________________
+**
+**
+**
+**Full Workflows 💯: 
+**
+**Description : Add the full pledged workflows here.
+**
+**
+**
+**
+**
+**
+**
+**
+**
+**
+**
+**
+**
+**
+**
+**
+**
+**_________________________________________________________________________
+**
+**
+**
+**New Category 🤔:
+**
+**Description: Add your category description here
+**
