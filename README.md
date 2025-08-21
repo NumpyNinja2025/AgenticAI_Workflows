@@ -28,12 +28,13 @@
 
 ### Description : Add the tools that are connected to the agent.
 
-### 1.[Example tool](https://github.com/RAMM143/numpy-ninja-flow-chart/tree/main/My%20n8n%20Workflows/Example%20flow%20Directory) - This is an example tool follow this structure and order
+1. [Example Workflow](https://github.com/RAMM143/numpy-ninja-flow-chart/tree/main/My%20n8n%20Workflows/Example%20flow%20Directory) - this is the example workflow follow this order and structure.
 
-2.
+
+
 # Full Workflows 💯:
 
-### Description : Add the full pledged workflows here:
+### Description : Add the full pledged workflows only here:
 
 
 # New Category 🤔:
