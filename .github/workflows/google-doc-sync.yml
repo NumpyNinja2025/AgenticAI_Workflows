@@ -29,6 +29,8 @@ jobs:
         run: |
           echo "$GOOGLE_CREDENTIALS" > credentials.json
           python scripts/google_doc_to_md.py
+          rm credentials.json  # delete after use
+
 
       - name: Commit and Push Changes
         run: |
