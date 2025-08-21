@@ -24,17 +24,18 @@ except Exception as e:
     print(f"Error fetching Google Doc: {e}")
     exit(1)
 
-# --- NEW Conversion Logic ---
+# --- FINAL Conversion Logic ---
 def parse_doc_to_md(content):
     """
     Parses Google Doc content and converts it to structurally correct Markdown.
+    This version handles hard paragraphs, soft line breaks, and other elements.
     """
     markdown_lines = []
-    list_counters = {}  # To keep track of numbering for different lists
+    list_counters = {}
 
     for element in content:
         # --- Handle Horizontal Rules ---
-        if 'horizontalRule' in element:
+        if 'horizontalRule' in element.get('paragraph', {}).get('elements', [{}])[0]:
             markdown_lines.append('---')
             continue
 
@@ -43,8 +44,7 @@ def parse_doc_to_md(content):
             paragraph = element.get('paragraph')
             elements = paragraph.get('elements', [])
             
-            # Check for empty paragraphs which are used for spacing
-            # An empty paragraph has one element with only a newline character
+            # Check for empty paragraphs used for spacing
             if len(elements) == 1 and elements[0].get('textRun', {}).get('content') == '\n':
                 markdown_lines.append('')
                 continue
@@ -55,9 +55,7 @@ def parse_doc_to_md(content):
             bullet = paragraph.get('bullet')
             if bullet and bullet.get('listId'):
                 list_id = bullet.get('listId')
-                # Increment the counter for this specific list
                 list_counters[list_id] = list_counters.get(list_id, 0) + 1
-                # Add the list marker to the beginning of the line
                 line_parts.append(f"{list_counters[list_id]}. ")
             
             # Process each text run within the paragraph
@@ -67,19 +65,26 @@ def parse_doc_to_md(content):
                     text_content = text_run.get('content', '')
                     text_style = text_run.get('textStyle', {})
                     
-                    # Ignore pure newline characters within a paragraph
+                    # --- KEY IMPROVEMENT: Handle soft line breaks (Shift+Enter) ---
+                    # The API represents a soft break as a vertical tab '\v'.
+                    # We replace it with a proper newline character for Markdown.
+                    text_content = text_content.replace('\v', '\n')
+
+                    # Ignore pure newline characters, as they are handled by paragraph breaks
                     if text_content == '\n':
                         continue
 
-                    # Apply formatting styles only to this specific text run
+                    # Apply formatting styles
                     if text_style.get('bold'):
-                        text_content = f"**{text_content}**"
-                    
+                        # Split content by newlines to apply bolding correctly line by line
+                        parts = text_content.split('\n')
+                        bolded_parts = [f"**{part}**" for part in parts]
+                        text_content = '\n'.join(bolded_parts)
+
                     if text_style.get('link'):
                         url = text_style['link']['url']
-                        # Clean the text content to prevent broken Markdown links
                         clean_text_content = text_content.replace('\n', ' ').strip()
-                        # Re-apply bolding if it was there
+                        # Re-apply bolding if it existed
                         if text_style.get('bold'):
                            clean_text_content = f"**{clean_text_content}**"
                         text_content = f"[{clean_text_content}]({url})"
@@ -88,10 +93,10 @@ def parse_doc_to_md(content):
             
             # Join all parts of the line and add to our output
             if line_parts:
-                markdown_lines.append("".join(line_parts))
+                full_line = "".join(line_parts).rstrip()
+                markdown_lines.append(full_line)
 
     return "\n".join(markdown_lines)
-
 
 # --- Main Execution ---
 markdown_content = parse_doc_to_md(content)
