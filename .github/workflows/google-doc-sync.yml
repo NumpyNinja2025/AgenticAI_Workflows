@@ -1,11 +1,14 @@
-name: Sync Google Doc to Markdown
+name: Sync Google Doc to README
 
 on:
   schedule:
-    - cron: '0 * * * *' # every hour
-  workflow_dispatch: # allows manual run
+    - cron: '0 * * * *' # Runs every hour
+  workflow_dispatch: # Allows manual triggering
+
+# This permission is required to allow the action to write to the repository
 permissions:
   contents: write
+
 jobs:
   sync:
     runs-on: ubuntu-latest
@@ -20,22 +23,25 @@ jobs:
 
       - name: Install Dependencies
         run: |
+          python -m pip install --upgrade pip
           pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib
 
       - name: Fetch Google Doc and Convert to MD
         env:
+          # These secrets must be set in your repository's Settings > Secrets > Actions
           GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
           DOC_ID: ${{ secrets.DOC_ID }}
         run: |
-          echo "$GOOGLE_CREDENTIALS" > credentials.json
-          python scripts/google_doc_to_md.py
-          rm credentials.json  # delete after use
-
+          # The Python script is in the root directory
+          python sync_gdoc.py
 
       - name: Commit and Push Changes
         run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add .
-          git commit -m "Updated Markdown from Google Doc" || echo "No changes to commit"
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          # Add changes to the staging area
+          git add README.md
+          # Commit if there are changes, and prevent error if there are no changes
+          git diff-index --quiet HEAD || git commit -m "Update README.md from Google Doc"
+          # Push the changes
           git push
