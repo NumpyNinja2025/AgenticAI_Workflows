@@ -13,14 +13,13 @@ Just do changes here it will reflect to github it takes time of 1 hour to sync.
 ****
 **If you are having any other category please add it as a new category.**
 ****
-**________________________________________________________**
+**__________________________________________________________****________________________________________________________**
 ****
 **Future N8N workflows Ideas or Plans 💭💡: **
 ****
 **Title: description - author name for interested people to connect.**
 ****
-
-**________________________________________________________**
+**__________________________________________________________________________________________________________________**
 ****
 **Agented Tools 🧰: **
 ****
@@ -28,20 +27,16 @@ Just do changes here it will reflect to github it takes time of 1 hour to sync.
 ****
 [****Example tool****](https://github.com/RAMM143/numpy-ninja-flow-chart/tree/main/My%20n8n%20Workflows/Example%20flow%20Directory)** - This is an example tool follow this structure and order**
 ****
-
-
-
-**________________________________________________________**
+**____________________________________________________________________________________****_________________________________________________**
 ****
+
+
 
 **Full Workflows 💯:**
 ****
-**Description : Add the full pledged workflows here.**
+**Description : Add the full pledged workflows here:**
 ****
-
-
-
-**________________________________________________________**
+**__________________________________________________________****________________________________________________________**
 ****
 **New Category 🤔:**
 **Description: Add your category description here**
